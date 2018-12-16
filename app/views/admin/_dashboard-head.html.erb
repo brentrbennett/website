@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>web_dashboard - Dashboard</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+  <%= stylesheet_link_tag "styles", "dashboard-content", "lightpick" %>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav>
+  <h1>Branding</h1>
+  <p>General</p>
+  <hr>
+  <a href="admin" id="overview">Overview</a>
+  <p>Reports</p>
+  <hr>
+  <%= link_to 'Cash Return', cash_return_path(:start_date => "12/16/2018", :end_date => "12/16/2018", :property_id => "5") %>
+<!--  <a  id="cash_return">Cash Return</a>-->
+  <a href="daily_rates">Daily Rates</a>
+  <a href="amazon_orders">Amazon Orders</a>
+  <p>Manage</p>
+  <hr>
+  <a href="accounts">Accounts</a>
+  <a href="properties">Properties</a>
+  <p>Account</p>
+  <hr>
+  <a href="settings">Settings</a>
+  <a href="logout">Logout</a>
+</nav>
+
+<!-- Dashboard Header -->
+<header id="header-area">
+  <!-- Search Bar -->
+  <div class="search-bar">
+    <i class="fas fa-search"></i>
+    <input type="text" placeholder="Search">
+  </div>
+</header>

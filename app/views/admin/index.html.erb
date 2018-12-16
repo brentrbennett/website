@@ -1,0 +1,16 @@
+<%= render 'dashboard-head' %>
+
+<!-- Main Dashboard Content -->
+<section class="dashboard-content">
+  <!-- Heading -->
+  <div class="heading">
+    <p>Dashboard</p>
+    <input type="text" id="calendar">
+    <h1>Overview</h1>
+    <hr>
+  </div>
+</section>
+<script>
+    document.getElementById("overview").className = "active";
+</script>
+<%= render 'dashboard-foot' %>

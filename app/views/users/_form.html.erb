@@ -1,0 +1,34 @@
+
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>web_dashboard - Login</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600,700" rel="stylesheet">
+<!--  <link rel="stylesheet" href="../css/login.css">-->
+  <%= stylesheet_link_tag "login" %>
+</head>
+<body>
+
+<div class="container">
+  <h1>Branding</h1>
+  <p>Dashboard Registration</p>
+  <% if flash[:alert] %>
+    <p id = 'notice'><%= flash[:alert] %></p>
+  <% end %>
+  <%= form_with(model: user, local: true, html: {class: "blue"}) do |form| %>
+    <%= form.text_field :name, placeholder: "username" %>
+    <%= form.password_field :password, placeholder: "password" %>
+    <%= form.password_field :password_confirmation, placeholder: "confirm password" %>
+    <%= form.submit %>
+  <% end %>
+  <a href="#password-recovery">Forgot your password?</a>
+  <a href= login_path >Have an account? Back to login</a>
+</div>
+</body>
+</html>
+
+

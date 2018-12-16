@@ -1,0 +1,108 @@
+/* Colors
+#EDF1F7 - Soft White
+#BCC1CF - Light Grey
+#4C5057 - Dark Grey
+#090A0C - Black
+#CCE6FF - Light Blue
+#0740F9 - Bright Blue
+#DA1B12 - Bright Red
+#7C9D7E - Light Green
+#34C635 - Bright Green
+ */
+html {
+    height: 100%;
+}
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    background: #EDF1F7;
+    margin: 0;
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container  {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    padding: 25px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.container h1 {
+    margin-bottom: -5px;
+    margin-top: -10px;
+    font-weight: 600;
+}
+
+.container p {
+    font-weight: 400;
+    font-size: 12px;
+    padding-bottom: 25px;
+}
+
+.container a {
+    font-weight: 400;
+    font-size: 14px;
+    color: #BCC1CF;
+    text-decoration: none;
+    transition: all .15s ease-in-out;
+
+}
+
+.container a:hover {
+    color: #4C5057;
+    text-decoration: underline;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    margin: 20px 0 20px 0;
+    padding: 20px 75px;
+    text-align: center;
+    border-style: none;
+    font-size: 1em;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    background: #E5EBEB;
+    transition: all .15s ease-in-out;
+}
+
+input[type="password"],
+input[type="email"] {
+    margin: 10px 0 10px 0;
+}
+
+input:hover {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
+}
+
+/* Log In Button */
+.green input[type="submit"] {
+    margin-top: 50px;
+    color: #fff;
+    background: #65B967;
+}
+
+.green input[type="submit"]:hover {
+    background: #8cdc8a;
+}
+
+/* Sign Up Button */
+.blue input[type="submit"] {
+    margin-top: 50px;
+    color: #fff;
+    background: #1b7af9;
+}
+
+.blue input[type="submit"]:hover {
+    background: #68bef9;
+}

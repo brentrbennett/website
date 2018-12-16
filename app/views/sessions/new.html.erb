@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>web_dashboard - Login</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600,700" rel="stylesheet">
+<!--  <link rel="stylesheet" href="../../assets/stylesheets/styles.css">-->
+  <%= stylesheet_link_tag "login" %>
+
+</head>
+<body>
+
+
+<div class="container">
+  <h1>Branding</h1>
+  <p>Dashboard Login</p>
+  <% if flash[:alert] %>
+    <p id = 'notice'><%= flash[:alert] %></p>
+  <% end %>
+  <%#= form_tag do %>
+    <%= form_tag({:action => 'create'},{:class => 'green'}) do %>
+      <%= text_field :name, params[:name], placeholder: "username" %>
+      <%= password_field_tag :password, params[:password], placeholder: "password" %>
+    <input type="submit" value="Login">
+      <%#= submit_tag("Log In") %>
+    <% end %>
+  <%# end %>
+  <a href="#password-recovery">Forgot your password?</a>
+  <a href= register_url >Need an account? Sign-up</a>
+</div>
+
+
+
+

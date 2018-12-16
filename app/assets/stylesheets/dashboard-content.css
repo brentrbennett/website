@@ -1,0 +1,48 @@
+/* Colors
+#EDF1F7 - Soft White
+#BCC1CF - Light Grey
+#4C5057 - Dark Grey
+#090A0C - Black
+#CCE6FF - Light Blue
+#0740F9 - Bright Blue
+#DA1B12 - Bright Red
+#7C9D7E - Light Green
+#34C635 - Bright Green
+ */
+hr {
+    border: 0; height: 0; border-top: 1px solid rgba(0, 0, 0, 0.1); border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.dashboard-content {
+    margin-left: 250px;
+    padding: 50px;
+    overflow-y: scroll;
+}
+
+/* Heading */
+.heading h1 {
+    color: #4C5057;
+    margin-bottom: -5px;
+    font-weight: 400;
+}
+
+.heading p {
+    font-weight: 300;
+    margin-bottom: -15px;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #BCC1CF;
+}
+
+.heading input {
+    display: inline-block;
+    float: right;
+    padding: 10px 25px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+    color: #090A0C;
+    background: #d8ddeb;
+    border-radius: 10px;
+    border-style: none;
+}
