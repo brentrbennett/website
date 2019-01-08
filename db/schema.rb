@@ -10,17 +10,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_16_201800) do
+ActiveRecord::Schema.define(version: 2018_12_20_030947) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "adminpack"
   enable_extension "plpgsql"
 
+  create_table "amazon_orders", force: :cascade do |t|
+    t.datetime "date"
+    t.string "amount"
+    t.string "double"
+    t.string "number"
+    t.string "property"
+    t.string "desc"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "daily_rates", primary_key: "properties_id", id: :bigint, default: nil, force: :cascade do |t|
-    t.daterange "dates_booked", array: true
-    t.bigint "dates_days", array: true
     t.bigint "dates_total_rent", array: true
     t.bigint "dates_daily_rent", array: true
+    t.text "dates_booked", comment: "string array of booked dates", array: true
+  end
+
+  create_table "expenses", primary_key: "expense_id", id: :bigint, default: nil, force: :cascade do |t|
+    t.float "expenses_additional_deposits", array: true
+    t.float "expenses_rental_income", array: true
+    t.float "expenses_monthly_payment", array: true
+    t.float "expenses_other_expenses", array: true
+    t.bigint "property_id"
+  end
+
+  create_table "properties", primary_key: "property_id", id: :bigint, default: nil, force: :cascade do |t|
+    t.text "property_address"
+    t.text "property_city"
+    t.text "property_state"
+    t.text "property_zip"
+    t.bigint "property_purchase_price"
+    t.bigint "property_loan_amount"
+    t.float "property_cash_investment"
+    t.bigint "property_updated_value"
+    t.bigint "property_updated_loan_amount"
+    t.text "property_img", comment: "img src"
   end
 
   create_table "users", force: :cascade do |t|

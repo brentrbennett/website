@@ -46,3 +46,155 @@ hr {
     border-radius: 10px;
     border-style: none;
 }
+
+.heading select {
+    padding: 9px 25px;
+    border-style: none;
+    text-align: left;
+    font-weight: bold;
+    font-size: 14px;
+    color: #090A0C;
+    background: #d8ddeb;
+    float: right;
+}
+
+/* Cards */
+
+
+/* Tables */
+.table-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-direction: column;
+}
+
+.table-filter {
+    display: inline-block;
+    width: 100%;
+    align-items: center;
+}
+
+.table-filter input {
+    display: inline-block;
+    padding: 10px 25px;
+    margin-bottom: 5px;
+    text-align: left;
+    font-weight: bold;
+    font-size: 14px;
+    color: #090A0C;
+    background: #d8ddeb;
+    border-style: none;
+    float: right;
+}
+
+.table-filter select {
+    padding: 9px 25px;
+    border-style: none;
+    text-align: left;
+    font-weight: bold;
+    font-size: 14px;
+    color: #090A0C;
+    background: #d8ddeb;
+    float: right;
+}
+
+table {
+    border-collapse: collapse;
+    /*box-shadow: 0 8px 8px 0 rgba(0,0,0,0.2);*/
+    width: 100%;
+}
+
+.data-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.data-right {
+    margin-bottom: -10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #4C5057;
+    width: 250px;
+}
+.data-left {
+    margin-bottom: -10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #4C5057;
+    width: 250px;
+}
+
+.data-right p span,
+.data-left p span {
+    float: right;
+}
+
+.data-right p:first-of-type,
+.data-left p:first-of-type {
+    margin-top: 25px;
+}
+
+.data-right p:last-of-type,
+.data-left p:last-of-type {
+    margin-bottom: -25px;
+}
+
+th {
+    background: #4C5057;
+    padding: 8px;
+    font-weight: 600;
+    font-size: 1.1em;
+    text-align: center;
+    color: #fff;
+}
+
+tr {
+    transition: all 0.15s ease-in-out;
+}
+
+tr:hover {
+    background: #BCC1CF;
+}
+
+td {
+    font-size: 1.1em;
+    padding: 15px 10px;
+    text-align: center;
+    border-bottom: 1px solid rgba(0, 0, 0, .25);
+}
+
+caption {
+    margin-top: 1em;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+/* Cards */
+
+.card-container {
+    display: flex;
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    margin: 10px;
+}
+
+.card a {
+    text-decoration: none;
+}
+
+.card img {
+    width: 275px;
+    height: 200px;
+}
+
+.card h4 {
+    margin: 10px 0;
+}

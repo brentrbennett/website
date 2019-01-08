@@ -14,7 +14,6 @@ body {
     font-family: 'Source Sans Pro', sans-serif;
     background: #EDF1F7;
     margin: 0;
-    overflow-x: hidden;
 }
 
 input:focus,
@@ -25,7 +24,7 @@ textarea:focus {
 
 /* Navigation */
 nav {
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 0;
     bottom: 0;
@@ -108,7 +107,7 @@ nav p {
     color: #4C5057;
     padding: 5px 10px;
     border-radius: 5px;
-    width: 80%;
+    width: 90%;
     transition: all .15s ease-in-out;
 }
 

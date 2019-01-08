@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @amazon_order.date %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @amazon_order.amount %>
+</p>
+
+<p>
+  <strong>Double:</strong>
+  <%= @amazon_order.double %>
+</p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @amazon_order.number %>
+</p>
+
+<p>
+  <strong>Property:</strong>
+  <%= @amazon_order.property %>
+</p>
+
+<p>
+  <strong>Desc:</strong>
+  <%= @amazon_order.desc %>
+</p>
+
+<%= link_to 'Edit', edit_amazon_order_path(@amazon_order) %> |
+<%= link_to 'Back', amazon_orders_path %>

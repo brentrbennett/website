@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2018-12-19 19:09:47
+  amount: MyString
+  double: MyString
+  number: MyString
+  property: MyString
+  desc: MyString
+
+two:
+  date: 2018-12-19 19:09:47
+  amount: MyString
+  double: MyString
+  number: MyString
+  property: MyString
+  desc: MyString

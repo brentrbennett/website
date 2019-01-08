@@ -1,0 +1,69 @@
+<%= render 'dashboard-head' %>
+
+<!-- Main Dashboard Content -->
+<section class="dashboard-content">
+  <!-- Heading -->
+  <div class="heading">
+    <p>Reports</p>
+    <input type="text" id="calendar">
+    <h1>Amazon Orders</h1>
+    <hr>
+  </div>
+  <div class="table-container">
+    <div class="table-filter">
+      <input type="text" placeholder="Filter">
+      <label>
+        <select name="property-name">
+          <option value="none">None</option>
+          <% if @list != nil %>
+            <% @list.each do |f| %>
+                <option><%= f %></option>
+            <% end %>
+          <% end %>
+        </select>
+      </label>
+      <label>
+        <select name="calendar-range">
+          <option value="YTD">Year to Date</option>
+          <option value="Q1">Quarter 1</option>
+          <option value="Q2">Quarter 2</option>
+          <option value="Q3">Quarter 3</option>
+          <option value="Q4">Quarter 4</option>
+        </select>
+      </label>
+    </div>
+    <table>
+      <thead>
+      <tr>
+        <th>Order Date</th>
+        <th>Month</th>
+        <th>Amount</th>
+        <th>Order #</th>
+        <th>Property</th>
+        <th>Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% if @table != nil %>
+        <% @table.each do |f| %>
+          <tr>
+            <td><%= f[:date].strftime("%m/%d/%Y") %></td>
+            <td><%= f[:date].strftime("%B")%></td>
+            <td>$<%= f[:amount] %></td>
+            <td><%= f[:number] %></td>
+            <td><%= f[:property] %></td>
+            <td><%= f[:desc] %></td>
+          </tr>
+        <% end %>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</section>
+<script>
+    document.getElementById("amazon_orders").className = "active";
+</script>
+<%= render 'dashboard-foot' %>
+
+
+

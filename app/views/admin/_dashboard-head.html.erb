@@ -20,14 +20,14 @@
   <a href="admin" id="overview">Overview</a>
   <p>Reports</p>
   <hr>
-  <%= link_to 'Cash Return', cash_return_path(:start_date => "12/16/2018", :end_date => "12/16/2018", :property_id => "5") %>
-<!--  <a  id="cash_return">Cash Return</a>-->
-  <a href="daily_rates">Daily Rates</a>
-  <a href="amazon_orders">Amazon Orders</a>
+  <a href="cash_return" id="cash_return">Cash Return</a>
+  <%= link_to "Daily Rates", daily_rates_path(:param1 => 'default'),:id=>"daily_rates"%>
+  <a href="amazon_orders" id="amazon_orders">Amazon Orders</a>
+  <a href="spiaggia" id="spiaggia">Spiaggia</a>
   <p>Manage</p>
   <hr>
   <a href="accounts">Accounts</a>
-  <a href="properties">Properties</a>
+  <%= link_to "Properties", properties_path(:param1 => 'all'),:id=>"properties"%>
   <p>Account</p>
   <hr>
   <a href="settings">Settings</a>
@@ -35,10 +35,10 @@
 </nav>
 
 <!-- Dashboard Header -->
-<header id="header-area">
-  <!-- Search Bar -->
-  <div class="search-bar">
-    <i class="fas fa-search"></i>
-    <input type="text" placeholder="Search">
-  </div>
-</header>
+<!--<header id="header-area">-->
+<!--
+ <div class="search-bar">-->
+<!--    <i class="fas fa-search"></i>-->
+<!--    <input type="text" placeholder="Search">-->
+<!--  </div>-->
+<!--</header>-->

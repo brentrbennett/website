@@ -1,0 +1,97 @@
+<%= render 'dashboard-head' %>
+<!-- Main Dashboard Content -->
+<section class="dashboard-content">
+  <!-- Heading -->
+  <div class="heading">
+    <p>Reports</p>
+    <label>
+      <select name="property-name" style="width: 300px">
+        <% if @daily == nil %>
+          <option value="none" selected>None</option>
+          <% @properties.each do |f| %>
+            <option><%= f[:property_address] %></option>
+          <% end %>
+        <% else %>
+          <% @properties.each do |f| %>
+            <% if @current_property == f %>
+              <option selected><%= f[:property_address] %></option>
+            <% else %>
+              <option><%= f[:property_address] %></option>
+            <% end %>
+          <% end %>
+        <% end %>
+      </select>
+    </label>
+    <h1>Daily Rates</h1>
+    <hr>
+  </div>
+  <% if @daily != nil %>
+    <div class="table-container">
+      <table>
+        <caption><%= @current_property[:property_address] %></caption>
+        <thead>
+        <tr>
+          <th>Dates Booked</th>
+          <th>Amount of Days</th>
+          <th>Rent</th>
+          <th>Daily Rent</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Foreach -->
+        <% @daily.each do |d| %>
+          <% d[:dates_booked].each_with_index do |val, key| %>
+            <tr>
+              <td><%= val %></td>
+              <% start = Date.strptime(val[0,val.index('-')], "%m/%d/%Y")  %>
+              <% fin = Date.strptime(val[val.index('-')+1,val.length], "%m/%d/%Y") %>
+              <td><%= (fin - start).to_i %></td>
+              <td>$<%= @daily[0][:dates_total_rent][key] %></td>
+              <td>$<%= @daily[0][:dates_daily_rent][key] %></td>
+            </tr>
+          <!-- End Foreach-->
+          <% end %>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="table-container" style="margin-top: 50px;">
+      <table>
+        <caption>Actual Occupancy</caption>
+        <thead>
+        <tr>
+          <th>Month</th>
+          <th>Total Days</th>
+          <th>Days Booked</th>
+          <th>Days Available</th>
+          <th>Occupancy</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Foreach -->
+        <tr>
+          <td>January</td>
+          <td>31</td>
+          <td>23</td>
+          <td>8</td>
+          <!-- days_booked / total_days -->
+          <td>74.19%</td>
+        </tr>
+        <!-- End Foreach-->
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+
+</section>
+<script>
+    $('select').on('change', function() {
+        if (this.value === 'none')
+            window.location = 'daily_rates?param1=default';
+        else
+            window.location ='daily_rates?param1=' + this.value;
+    });
+    document.getElementById("daily_rates").className = "active";
+</script>
+<%= render 'dashboard-foot' %>

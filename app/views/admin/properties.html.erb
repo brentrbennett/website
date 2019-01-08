@@ -1,0 +1,28 @@
+<%= render 'dashboard-head' %>
+
+<!-- Main Dashboard Content -->
+<section class="dashboard-content">
+  <!-- Heading -->
+  <div class="heading">
+    <p>Manage</p>
+    <input type="text" id="calendar">
+    <h1>Properties</h1>
+    <hr>
+  </div>
+  <div class="card-container">
+    <!-- Foreach Property -->
+    <% @properties.each do |f| %>
+      <div class="card">
+        <%= link_to properties_path(:param1 => f[:property_id]),:id=>"properties" do %>
+          <img src=<%=f[:property_img] %>>
+          <h4><strong><%= f[:property_address] %></strong></h4>
+        <% end %>
+      </div>
+    <% end %>
+    <!-- End Foreach -->
+  </div>
+</section>
+<script>
+    document.getElementById("properties").className = "active";
+</script>
+<%= render 'dashboard-foot' %>

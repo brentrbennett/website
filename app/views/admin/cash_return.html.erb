@@ -1,0 +1,138 @@
+<%= render 'dashboard-head' %>
+
+<!-- Main Dashboard Content -->
+<section class="dashboard-content">
+  <!-- Heading -->
+  <div class="heading">
+    <p>Reports</p>
+    <input type="text" id="calendar">
+    <h1>Cash Return</h1>
+    <hr>
+  </div>
+
+  <!-- Foreach Property -->
+  <% @props.each do |f| %>
+  <div class="table-container">
+    <div class="data-container">
+      <div class="data-left">
+        <p>Purchase Price: <span>$<%= f[:property_purchase_price] %></span></p>
+        <p>Loan Amount: <span>$<%= f[:property_loan_amount] %></span></p>
+        <p>Cash Investment: <span>$<%= f[:property_cash_investment] %></span></p>
+      </div>
+      <div class="data-right">
+        <p>Updated Value: <span>$<%= f[:property_updated_value] %></span></p>
+        <p>Updated LA: <span>$<%= f[:property_updated_loan_amount] %></span></p>
+        <p>Equity Adjustment + / -: <span>$<%= f[:property_updated_value] - f[:property_purchase_price] - f[:property_updated_loan_amount] + f[:property_loan_amount] %></span></p>
+      </div>
+    </div>
+    <table>
+      <!-- Property Name -->
+      <caption><%= f[:property_address] %></caption>
+      <thead>
+      <tr>
+        <th scope="col">Month</th>
+        <th scope="col">January</th>
+        <th scope="col">February</th>
+        <th scope="col">March</th>
+        <th scope="col">April</th>
+        <th scope="col">May</th>
+        <th scope="col">June</th>
+        <th scope="col">July</th>
+        <th scope="col">August</th>
+        <th scope="col">September</th>
+        <th scope="col">October</th>
+        <th scope="col">November</th>
+        <th scope="col">December</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <% add_deposits = Array.new %>
+        <th scope="row">Add. Deposit</th>
+        <% @expenses.each do |i| %>
+          <% if i[:property_id] == f[:property_id] %>
+            <%i[:expenses_additional_deposits].each do |x| %>
+              <td>$<%= x.round(2) %></td>
+              <% add_deposits.push(x) %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </tr>
+
+      <tr>
+        <% rental_income = Array.new %>
+        <th scope="row">Rental Income</th>
+        <% @expenses.each do |i| %>
+          <% if i[:property_id] == f[:property_id] %>
+            <%i[:expenses_rental_income].each do |x| %>
+              <td>$<%= x.round(2) %></td>
+              <% rental_income.push(x) %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </tr>
+      <% total_expenses = [0,0,0,0,0,0,0,0,0,0,0,0] %>
+      <tr>
+        <th scope="row">Monthly Payment</th>
+        <% @expenses.each do |i| %>
+          <% if i[:property_id] == f[:property_id] %>
+            <%i[:expenses_monthly_payment].each_with_index do |val, key|%>
+              <td>$<%= val.round(2) %></td>
+              <% total_expenses[key] += val %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </tr>
+
+      <tr>
+        <th scope="row">Other Expenses</th>
+        <% @expenses.each do |i| %>
+          <% if i[:property_id] == f[:property_id] %>
+            <%i[:expenses_other_expenses].each_with_index do |val, key|%>
+              <td>$<%= val.round(2) %></td>
+              <% total_expenses[key] += val %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </tr>
+
+      <tr>
+        <th scope="row">Total Expenses</th>
+        <% total_expenses.each do |i| %>
+              <td>$<%= i.round(2) %></td>
+        <% end %>
+      </tr>
+
+      <tr>
+        <th scope="row">Cash Balance</th>
+        <% monthly_amount = Array.new %>
+        <% total_expenses.each_with_index do |value, key| %>
+          <%if key == 0 %>
+            <td>$<%= (add_deposits[key]+ rental_income[key] - total_expenses[key] + 18482.74).round(2) %></td>
+            <% monthly_amount.push((add_deposits[key]+ rental_income[key] - total_expenses[key] + 18482.74).round(2)) %>
+          <%else %>
+            <td>$<%= (add_deposits[key]+ rental_income[key] - total_expenses[key] + monthly_amount[key-1]).round(2) %></td>
+            <%monthly_amount.push((add_deposits[key]+ rental_income[key] - total_expenses[key] + monthly_amount[key-1]).round(2)) %>
+          <%end %>
+        <% end %>
+      </tr>
+
+      <tr>
+        <th scope="row">Return On Investment</th>
+        <% monthly_amount.each_with_index do |val, key| %>
+          <%#= monthly_amount[key] %>
+          <%#= f[:property_cash_investment] %>
+            <td><%= (monthly_amount[key]/f[:property_cash_investment] *100).round(2) %>%</td>
+        <% end %>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+    <% end %>
+  <!-- End Foreach -->
+
+</section>
+<script>
+    document.getElementById("cash_return").className = "active";
+</script>
+<%= render 'dashboard-foot' %>

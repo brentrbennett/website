@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  #resources :amazon_orders
   get 'admin/index'
   get 'sessions/new' => 'admin#index'
   get 'sessions/create' => 'admin#index'
@@ -10,7 +11,12 @@ Rails.application.routes.draw do
   resources :users
 
   get 'admin' => 'admin#index'
-  get 'cash_return' => 'admin#cashreturn'
+  get 'cash_return' => 'admin#cash_return'
+  get 'amazon_orders' => 'admin#amazon_orders'
+  get 'daily_rates' => 'admin#daily_rates'
+  get 'spiaggia' => 'admin#spiaggia_report'
+  get 'properties' => 'admin#properties'
+  get 'add_amazon_order' => 'admin#add_amazon_order'
   controller :sessions do
     get 'login' => :new
     post 'login' => :create
